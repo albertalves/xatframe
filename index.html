@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Albert</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=28">
+</head>
+<body>
+  <!-- Fundos que se alternam: para adicionar outro, duplique uma linha e troque a imagem -->
+  <div class="backdrop" aria-hidden="true" data-interval="12000">
+    <div class="backdrop__img is-active" style="background-image: url('img/fundo.jpg')"></div>
+    <div class="backdrop__img" style="background-image: url('img/fundo-2.jpg')"></div>
+    <div class="backdrop__img" style="background-image: url('img/fundo-3.jpg')"></div>
+    <div class="backdrop__img" style="background-image: url('img/fundo-4.jpg')"></div>
+  </div>
+
+  <!-- Player de música: troque o data-video pelo código de outro vídeo do YouTube -->
+  <div class="music" data-video="ZEKeZmN_d4A">
+    <button class="music__toggle" type="button" aria-label="Tocar música">
+      <svg class="music__icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+      <svg class="music__icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg>
+    </button>
+    <div class="music__info">
+      <span class="music__title">Distance &amp; Pixelated</span>
+      <span class="music__artist">Jeremy Passion</span>
+    </div>
+    <span class="music__eq" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span class="music__progress" aria-hidden="true"><span></span></span>
+  </div>
+  <div class="music__yt" aria-hidden="true"><div id="yt-player"></div></div>
+
+  <main class="page">
+    <section class="profile">
+      <h1 class="profile__name">Albert <em>Alves</em></h1>
+      <p class="profile__bio">
+        A coisa mais bonita que você pode fazer por alguém
+        é poupá-lo do seu julgamento.
+      </p>
+
+      <ul class="profile__meta">
+        <li><span>Local</span>Brasil, Rio de Janeiro</li>
+        <li><span>Gosto de</span>Fotografia, Treino, Música</li>
+        <li>
+          <span>Instagram</span>
+          <a href="https://www.instagram.com/albert.aalves" target="_blank" rel="noopener">@albert.aalves <i aria-hidden="true">↗</i></a>
+        </li>
+      </ul>
+
+      <blockquote class="profile__quote">
+        <cite>Mario Quintana, <em>Seiscentos e Sessenta e Seis</em></cite>
+        <p>A vida é uns deveres que nós<br>trouxemos para fazer em casa.</p>
+        <button class="profile__more" type="button" data-open="poema">Ler o poema completo <i aria-hidden="true">→</i></button>
+      </blockquote>
+    </section>
+
+    <section class="gallery" aria-label="Fotos">
+      <div class="frame">
+      <div class="slider" data-interval="5000">
+        <img class="slider__img is-active" src="img/perfil.jpg" alt="Foto de perfil">
+        <img class="slider__img" src="img/foto-1.jpg" alt="Foto 1">
+        <img class="slider__img" src="img/foto-2.jpg" alt="Foto 2">
+      </div>
+      </div>
+      <div class="slider__dots" role="tablist"></div>
+    </section>
+  </main>
+
+  <dialog class="poem" id="poema" aria-labelledby="poema-titulo">
+    <button class="poem__close" type="button" aria-label="Fechar">×</button>
+    <h2 class="poem__title" id="poema-titulo">Seiscentos e Sessenta e Seis</h2>
+    <p class="poem__author">Mario Quintana</p>
+
+    <div class="poem__body">
+      <p>A vida é uns deveres que nós trouxemos para fazer em casa.</p>
+      <p>
+        Quando se vê, já são 6 horas: há tempo…<br>
+        Quando se vê, já é 6ª-feira…<br>
+        Quando se vê, passaram 60 anos!<br>
+        Agora, é tarde demais para ser reprovado…<br>
+        E se me dessem – um dia – uma outra oportunidade,<br>
+        eu nem olhava o relógio<br>
+        seguia sempre em frente…
+      </p>
+      <p>E iria jogando pelo caminho a casca dourada e inútil das horas.</p>
+    </div>
+  </dialog>
+
+  <script src="script.js?v=28"></script>
+</body>
+</html>
