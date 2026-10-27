@@ -198,14 +198,39 @@ body {
   transition: width 500ms linear;
 }
 
-/* O vídeo do YouTube fica fora da tela; só o áudio é usado */
+/* O vídeo do YouTube fica escondido; só o áudio é usado */
 .music__yt {
-  position: fixed;
-  left: -9999px;
+  position: absolute;
+  left: 0;
   top: 0;
   width: 1px;
   height: 1px;
   overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.music__yt iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* Dentro do xat o navegador exige um clique no próprio vídeo:
+   ele fica invisível por cima do player até começar a tocar.
+   O YouTube ignora cliques em vídeo muito baixo e nas faixas de cima e de baixo,
+   então ele é bem mais alto que o player e só a faixa do meio fica à mostra */
+.music.needs-tap .music__yt {
+  left: 0;
+  right: 0;
+  top: 50%;
+  width: auto;
+  height: 160px;
+  transform: translateY(-50%);
+  z-index: 1;
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 @keyframes eq {

@@ -89,9 +89,22 @@
   var player = null;
   var pausedByUser = false;
 
+  // Dentro de outra página (como o xat) o som só libera com clique no próprio vídeo
+  var framed = true;
+  try {
+    framed = window.self !== window.top;
+  } catch (e) {}
+
+  function setNeedsTap(needs) {
+    box.classList.toggle("needs-tap", needs);
+  }
+
+  if (framed) setNeedsTap(true);
+
   function setPlaying(playing) {
     box.classList.toggle("is-playing", playing);
     toggle.setAttribute("aria-label", playing ? "Pausar música" : "Tocar música");
+    if (playing) setNeedsTap(false);
   }
 
   function isPlaying() {
@@ -124,6 +137,8 @@
   window.onYouTubeIframeAPIReady = function () {
     player = new YT.Player("yt-player", {
       videoId: videoId,
+      width: "100%",
+      height: "100%",
       playerVars: { autoplay: 1, loop: 1, playlist: videoId, controls: 0, playsinline: 1 },
       events: {
         onReady: function (e) {

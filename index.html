@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=29">
+  <link rel="stylesheet" href="style.css?v=32">
 </head>
 <body>
   <!-- Fundos que se alternam: para adicionar outro, duplique uma linha e troque a imagem -->
@@ -20,6 +20,8 @@
 
   <!-- Player de música: troque o data-video pelo código de outro vídeo do YouTube -->
   <div class="music" data-video="ZEKeZmN_d4A">
+    <!-- Dentro do xat, o vídeo fica invisível por cima do player para receber o primeiro clique -->
+    <div class="music__yt"><div id="yt-player"></div></div>
     <button class="music__toggle" type="button" aria-label="Tocar música">
       <svg class="music__icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
       <svg class="music__icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg>
@@ -31,7 +33,6 @@
     <span class="music__eq" aria-hidden="true"><i></i><i></i><i></i></span>
     <span class="music__progress" aria-hidden="true"><span></span></span>
   </div>
-  <div class="music__yt" aria-hidden="true"><div id="yt-player"></div></div>
 
   <main class="page">
     <section class="profile">
@@ -89,6 +90,6 @@
     </div>
   </dialog>
 
-  <script src="script.js?v=29"></script>
+  <script src="script.js?v=32"></script>
 </body>
 </html>
