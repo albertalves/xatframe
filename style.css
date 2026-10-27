@@ -68,8 +68,8 @@ body {
   width: min(1240px, 100%);
   margin: 0 auto;
   padding: clamp(24px, 5vw, 64px);
-  /* Espaço para o player de música no topo */
-  padding-top: max(84px, clamp(24px, 5vw, 64px));
+  /* Espaço para o player de música embaixo */
+  padding-bottom: max(84px, clamp(24px, 5vw, 64px));
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
@@ -80,7 +80,7 @@ body {
 
 .music {
   position: fixed;
-  top: 16px;
+  bottom: 16px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
@@ -216,7 +216,7 @@ body {
 @keyframes drop {
   from {
     opacity: 0;
-    transform: translate(-50%, -8px);
+    transform: translate(-50%, 8px);
   }
 }
 
