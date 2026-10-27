@@ -217,10 +217,12 @@ body {
   display: block;
 }
 
-/* Dentro do xat o navegador exige um clique no próprio vídeo:
-   ele fica invisível por cima do player até começar a tocar.
-   O YouTube ignora cliques em vídeo muito baixo e nas faixas de cima e de baixo,
-   então ele é bem mais alto que o player e só a faixa do meio fica à mostra */
+/* Dentro do xat o navegador exige um clique no próprio vídeo, até começar a tocar.
+   - O Chrome ignora cliques em vídeo transparente, então ele fica visível,
+     mas escondido atrás de uma capa opaca com o desenho do player.
+   - O YouTube ignora cliques em vídeo muito baixo e nas faixas de cima e de baixo,
+     então ele é bem mais alto que o player e só a faixa do meio fica dentro dele.
+   - A capa e o conteúdo deixam o clique passar direto para o vídeo. */
 .music.needs-tap .music__yt {
   left: 0;
   right: 0;
@@ -228,9 +230,25 @@ body {
   width: auto;
   height: 160px;
   transform: translateY(-50%);
-  z-index: 1;
+  opacity: 1;
   pointer-events: auto;
-  cursor: pointer;
+}
+
+.music.needs-tap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: #1b191c;
+  pointer-events: none;
+}
+
+.music.needs-tap .music__toggle,
+.music.needs-tap .music__info,
+.music.needs-tap .music__eq {
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
 }
 
 @keyframes eq {
